@@ -8,10 +8,10 @@ const Create = () => {
                 <h1>Create Geld account</h1>
                 <p>Sign up below to create your Wallet account</p>
                 <div className="flex flex-col gap-3">
-                    <input className="border-2 rounded-xl border-gray-300" type="name" placeholder="Name"/>
-                    <input className="border-2 rounded-xl border-gray-300" type="email" placeholder="Email"/>
-                    <input className="border-2 rounded-xl border-gray-300" type="password" placeholder="Password"/>
-                    <input className="border-2 rounded-xl border-gray-300" type="password" placeholder="Re-Password"/>
+                    <input className="border-2 rounded-xl border-gray-300 p-2" type="name" placeholder="Name"/>
+                    <input className="border-2 rounded-xl border-gray-300 p-2" type="email" placeholder="Email"/>
+                    <input className="border-2 rounded-xl border-gray-300 p-2" type="password" placeholder="Password"/>
+                    <input className="border-2 rounded-xl border-gray-300 p-2" type="password" placeholder="Re-Password"/>
                 </div>
                 <button className="btn bg-blue-600 rounded-3xl">Sign up</button>
                 <div className="flex">
