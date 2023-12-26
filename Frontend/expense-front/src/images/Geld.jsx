@@ -2,7 +2,7 @@ import geld from "../../public/Frame.svg";
  
 const Geld = () => {
     return (
-        <img src={geld.src} alt="" />
+        <img src={geld.src} alt=""/>
     )
 }
 
