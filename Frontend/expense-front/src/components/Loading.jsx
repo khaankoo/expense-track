@@ -2,7 +2,7 @@ import Geld from "@/images/Geld";
 
 const Loading = () => {
     return (
-        <div className="flex flex-col mx-auto gap-6">
+        <div className="flex flex-col mx-auto gap-6 items-center">
             <Geld />
             <div className="flex flex-col gap-4">
                 <span className="loading mx-auto text-blue-600"></span>
