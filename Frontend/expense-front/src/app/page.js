@@ -1,3 +1,4 @@
+import Currency from "@/components/Currency";
 import Navbar from "@/components/Navbar";
 
 export default function Home() {
