@@ -1,10 +1,9 @@
-import Loading from "@/components/Loading";
-
+import Navbar from "@/components/Navbar";
 
 export default function Home() {
   return (
-    <main className="flex flex-col mx-auto">
-      <Loading />
+    <main className="flex flex-col mx-auto w-full bg-[#eff0f2]">
+      <Navbar />
     </main>
   )
 }
