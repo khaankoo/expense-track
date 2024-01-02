@@ -16,7 +16,7 @@ const card = [
 
 const Maping = () => {
     return (
-        <div className="flex gap-10">
+        <div className="flex gap-[20px] justify-between w-full" style={{gap: 45}}>
             {
                 card.map((el) => {
                     let key = uuidv4()
