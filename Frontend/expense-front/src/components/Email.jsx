@@ -1,4 +1,5 @@
 import Geld from "@/images/Geld";
+import Link from "next/link";
 
 const Email = () => {
   return (
@@ -14,7 +15,9 @@ const Email = () => {
         </div>
         <div className="flex gap-2 mx-auto">
           <p>Don’t have account?</p>
-          <button className="text-blue-500">Sign up</button>
+          <Link href={'/create'}>
+            <button className="text-blue-500">Sign up</button>
+          </Link>
         </div>
       </div>
       <div className="bg-blue-600 w-1/2"></div>
