@@ -8,7 +8,6 @@ const Currency = () => {
                 <Geld />
                 <div className="steps">
                     <div className="step step-neutral">Currency</div>
-                    <div className="step step-neutral">Balance</div>
                     <div className="step">Finish</div>                    
                 </div>
             </div>

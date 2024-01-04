@@ -13,8 +13,8 @@ const Create = () => {
                     <input className="border-2 rounded-xl border-gray-300 p-2" type="password" placeholder="Password"/>
                     <input className="border-2 rounded-xl border-gray-300 p-2" type="password" placeholder="Re-Password"/>
                 </div>
-                <button className="btn bg-blue-600 rounded-3xl">Sign up</button>
-                <div className="flex">
+                <button className="btn bg-blue-600 rounded-3xl text-white">Sign up</button>
+                <div className="flex justify-center gap-3">
                     <p>Already have account?</p>
                     <button className="text-blue-500">Log in</button>
                 </div>

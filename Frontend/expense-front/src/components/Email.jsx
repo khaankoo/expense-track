@@ -1,6 +1,11 @@
 import Geld from "@/images/Geld";
 import Link from "next/link";
+import axios from "axios";
 
+const api = "http://localhost:8000"
+const axiosing = async () => {
+  await axios.get(api)
+}
 const Email = () => {
   return (
     <div className="flex mx-auto justify-between w-full">
@@ -21,7 +26,7 @@ const Email = () => {
         </div>
       </div>
       <div className="bg-blue-600 w-1/2"></div>
-    </div>
+    </div>  
   );
 };
 
