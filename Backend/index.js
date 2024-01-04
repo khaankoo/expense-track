@@ -20,15 +20,48 @@ app.post("/createTable", async (_, res) => {
   try {
     const tableQueryText = `
     CREATE TABLE IF NOT EXISTS users (
-      id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
-      name VARCHAR(50) NOT NULL,
-      email VARCHAR(50) UNIQUE NOT NULL,
+      id uuid DEFAULT gen_random_uuid(),
+      name VARCHAR(255) NOT NULL,
+      email VARCHAR(255) NOT NULL,
       password TEXT,
-      avatar_img blob,
-      createdAt TIMESTAMP,
-      updateAt TIMESTAMP,
-      currency_type TEXT DEFAUL ‘MNT’
+      avatar_img BYTEA,
+      createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      updateAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      currency_type TEXT
       )`;
+
+    await pool.query(tableQueryText);
+    res.send("ok");
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+app.post("/createCategoryTable", async (_, res) => {
+  try {
+    const tableQueryText = `
+    CREATE TABLE IF NOT EXISTS category (
+      id uuid DEFAULT gen_random_uuid(),
+      name VARCHAR(255) NOT NULL,
+      email VARCHAR(255) NOT NULL,
+      password TEXT,
+      avatar_img BYTEA,
+      createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      updateAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      currency_type TEXT
+      )`;
+
+    await pool.query(tableQueryText);
+    res.send("ok");
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+app.post("/dropTable", async (_, res) => {
+  try {
+    const tableQueryText = `
+      DROP TABLE users`;
 
     await pool.query(tableQueryText);
     res.send("ok");

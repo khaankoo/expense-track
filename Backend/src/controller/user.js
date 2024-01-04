@@ -27,7 +27,7 @@ export const createUser = async (req, response) => {
 
   try {
     const queryText =
-      "INSERT INTO users (name, email) VALUES ($1, $2) RETURNING *";
+      "INSERT INTO users (id ,name, email) VALUES (gen_random_uuid() ,$1, $2) RETURNING *";
     const res = await pool.query(queryText, [name, email]);
     response.send(res.rows[0]);
   } catch (error) {
