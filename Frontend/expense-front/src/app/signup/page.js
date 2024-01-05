@@ -31,7 +31,9 @@ const Create = () => {
                     <input className="border-2 rounded-xl border-gray-300 p-2" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password"/>
                     <input className="border-2 rounded-xl border-gray-300 p-2" type="password" value={rePassword} onChange={(e) => setRePassword(e.target.value)} placeholder="Re-Password"/>
                 </div>
-                <button className="btn bg-blue-600 rounded-3xl text-white" onClick={axiosing}>Sign up</button>
+                <Link href={"/currency"}>
+                    <button className="btn btn-primary bg-blue-600 rounded-3xl text-white w-full" onClick={axiosing}>Sign up</button>
+                </Link>
                 <div className="flex justify-center gap-3">
                     <p>Already have account?</p>
                     <Link href={"/register"}>

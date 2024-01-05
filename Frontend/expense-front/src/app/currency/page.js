@@ -4,7 +4,7 @@ import Link from "next/link"
 
 const Currency = () => {
     return (
-        <div className="flex flex-col mx-auto w-[400px] gap-36 h-[100vh] justify-center">
+        <div className="flex flex-col mx-auto w-[400px] gap-16 h-[100vh] justify-center">
             <div className="flex flex-col w-3/5 mx-auto gap-3">
                 <Geld />
                 <div className="steps">
@@ -26,7 +26,7 @@ const Currency = () => {
                         <p className="text-[#475569]">Your base currency should be the one you use most often. All transaction in other currencies will be calculated based on this one</p>
                     </div>
                     <Link href={"/finish"}>
-                        <button className="btn bg-blue-600 text-white rounded-3xl">Confirm</button>
+                        <button className="btn bg-blue-600 text-white rounded-3xl w-full btn-primary">Confirm</button>
                     </Link>
                 </div>
             </div>
