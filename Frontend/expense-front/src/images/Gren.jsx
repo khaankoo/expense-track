@@ -1,4 +1,4 @@
-import green from "../../public/gren.png";
+import green from "../../public/green.svg";
 
 const Green = () => {
     return (

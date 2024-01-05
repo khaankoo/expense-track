@@ -1,4 +1,5 @@
 import Geld from "@/images/Geld"
+import Link from "next/link"
 
 const Create = () => {
     return ( 
@@ -16,10 +17,12 @@ const Create = () => {
                 <button className="btn bg-blue-600 rounded-3xl text-white">Sign up</button>
                 <div className="flex justify-center gap-3">
                     <p>Already have account?</p>
-                    <button className="text-blue-500">Log in</button>
                 </div>
             </div>
             <div className="bg-blue-600 w-1/2"></div>
+            <Link>
+                <button className="text-blue-500">Log in</button>
+            </Link>
         </div>
     )
 }

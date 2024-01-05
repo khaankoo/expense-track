@@ -1,5 +1,6 @@
 import Doll from "@/images/Dollar"
 import Geld from "@/images/Geld"
+import Link from "next/link"
 
 const Currency = () => {
     return (
@@ -24,7 +25,9 @@ const Currency = () => {
                         </select>
                         <p className="text-[#475569]">Your base currency should be the one you use most often. All transaction in other currencies will be calculated based on this one</p>
                     </div>
-                    <button className="btn bg-blue-600 text-white rounded-3xl">Confirm</button>
+                    <Link href={"/finish"}>
+                        <button className="btn bg-blue-600 text-white rounded-3xl">Confirm</button>
+                    </Link>
                 </div>
             </div>
         </div>

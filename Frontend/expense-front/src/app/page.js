@@ -7,13 +7,11 @@ import Lend from "@/utils/Records";
 
 export default function Home() {
   return (
-    <main className="bg-[#eff0f2] h-full">
+    <main className="bg-[#eff0f2] h-screen">
       <Navbar />
       <Card />
       <Expense />
       <Lend />
-      {/* <Email /> */}
-      {/* <Create /> */}
     </main>
   )
 }

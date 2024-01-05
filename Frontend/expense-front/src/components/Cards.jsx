@@ -1,5 +1,7 @@
 import Bluen from "@/images/Blue"
+import { Downed } from "@/images/Down"
 import Green from "@/images/Gren"
+import { Upped } from "@/images/up"
 
 
 const { default: Visa } = require("@/images/Visa")
@@ -15,10 +17,11 @@ const Card = () => {
                 </div>
                 <hr />
                 <div>
-                    <h1 className="font-semibold text-3xl">1,200,000</h1>
+                    <h1 className="font-semibold text-3xl">1,200,000$</h1>
                     <p>Your Income Amount</p>
                 </div>
-                <div>
+                <div className="flex gap-2">
+                    <Upped />
                     <p>32% from last month</p>
                 </div>
             </div>
@@ -29,10 +32,11 @@ const Card = () => {
                 </div>
                 <hr />
                 <div>
-                    <h1 className="font-semibold text-3xl">-1,200,000</h1>
+                    <h1 className="font-semibold text-3xl">-1,200,000$</h1>
                     <p>Your Income Amount</p>
                 </div>
-                <div>
+                <div className="flex gap-2">
+                    <Downed />
                     <p>32% from last month</p>
                 </div>
             </div>
