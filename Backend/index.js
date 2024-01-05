@@ -3,11 +3,13 @@ import dotenv from "dotenv";
 import bp from "body-parser";
 import { pool } from "./src/utils/db.js"
 import { user } from "./src/router/user.js";
+import cors from "cors"
 
 dotenv.config();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 const app = express();
+app.use(cors())
 app.use(bp.json());
 
 app.use("/users", user);
