@@ -17,7 +17,7 @@ const Email = () => {
         <div className="flex flex-col gap-2">
           <input className="p-2 rounded-lg border-2 border-gray-300" type="email" id="" placeholder="Email"/>
           <input className="p-2 rounded-lg border-2 border-gray-300" type="password" id="" placeholder="Password"/>
-          <button className="btn bg-blue-600 text-white rounded-3xl" onClick={moveRegis}>Log in</button>
+          <button className="btn bg-blue-600 text-white rounded-3xl btn-primary" onClick={moveRegis}>Log in</button>
         </div>
         <div className="flex gap-2 mx-auto">
           <p>Don’t have account?</p>
