@@ -2,6 +2,7 @@ import Plus from "@/images/Plus"
 import Maped from "@/utils/Down"
 import Plussed from "@/images/Plussed"
 import Left from "@/images/Left"
+import DownTwo from "@/images/DownTwo"
 
 const { default: Navbar } = require("@/components/Navbar")
 
@@ -10,7 +11,7 @@ const Record = () => {
     return (
         <div className="bg-[#eff0f2] h-screen">
             <Navbar />
-            <div className="flex max-w-screen-xl mx-auto my-10 gap-12">
+            <div className="flex max-w-screen-xl mx-auto my-8 gap-12">
                 <div className="flex flex-col w-2/6 h-[500] rounded-xl bg-white py-3 px-3 gap-3">
                     <h1 className="font-semibold mb-3 text-xl">Records</h1>
                     <div className="flex flex-col gap-6">
@@ -23,7 +24,7 @@ const Record = () => {
                         <h1 className="font-semibold text-lg">Types</h1>
                         <div className="flex flex-col gap-3 pl-4">
                             <div className="flex gap-3">
-                                <input type="checkbox" className="rounded-3xl"/>
+                                <input type="checkbox" className="rounded-3xl border"/>
                                 <p>All</p>
                             </div>
                             <div className="flex gap-3">
@@ -54,15 +55,23 @@ const Record = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col w-full">
+                <div className="flex flex-col w-full gap-5">
                     <div className="flex justify-between">
                         <div className="flex gap-3 items-center">
-                            <button className="border-none bg-gray-300 rounded-xl h-10 w-10">zu</button>
+                            <button className="border-none bg-gray-300 rounded-xl h-10 w-10"><Left /></button>
                             <p>Last 30 Days</p>
                             <button className="border-none bg-gray-300 rounded-xl h-10 w-10">ba</button>
                         </div>
-                        <button className="p-3 bg-white rounded-lg font-medium border-2">Newest First</button>
+                        <button className="flex gap-2 p-3 bg-white rounded-lg font-medium border-2">Newest First <DownTwo /></button>
                     </div>
+                    <div className="flex p-2 px-4 justify-between w-full h-12 bg-white rounded-lg border items-center">
+                        <div className="flex gap-3">
+                            <input type="checkbox"/>
+                            <p>Select all</p>
+                        </div>
+                        <p>- 35,500$</p>
+                    </div>
+                    <h1 className="font-semibold">Today</h1>
                 </div>
             </div>
         </div>
