@@ -61,3 +61,15 @@ export const updateUser = async (req, response) => {
     console.error(error);
   }
 };
+
+export const login = async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    const queryText = `SELECT * FROM users WHERE email='${email}' AND password='${password}'`;
+    const find = await pool.query(queryText);
+
+    res.send(find.row[0].length);
+  } catch (error) {
+    console.error("error", error);
+  }  
+}
