@@ -3,17 +3,19 @@ import Geld from "@/images/Geld";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import axios from "axios";
 
-const api = "http://localhost:8000/users"
+const api = "http://localhost:8000/users/user"
 
 const Email = () => {
-  const [ name, setName ] = useState("");
+  const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
   const router = useRouter();
+
   const moveRegis = async () => {
     router.push("/register");
     try {
-      const res = await axios.get(api, {name, password})
+      const res = await axios.post(api, { email, password })
       console.log(res.data);
     } catch (error) {
       console.error("error", error);
@@ -26,7 +28,7 @@ const Email = () => {
         <h1 className="text-black font-semibold">Welcome Back</h1>
         <p>Welcome back, Please enter your details</p>
         <div className="flex flex-col gap-2">
-          <input className="p-2 rounded-lg border-2 border-gray-300" type="email" id="" placeholder="Email" value={name} onChange={(e) => setName(e.target.value)}/>
+          <input className="p-2 rounded-lg border-2 border-gray-300" type="email" id="" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
           <input className="p-2 rounded-lg border-2 border-gray-300" type="password" id="" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
           <button className="btn bg-blue-600 text-white rounded-3xl btn-primary" onClick={moveRegis}>Log in</button>
         </div>

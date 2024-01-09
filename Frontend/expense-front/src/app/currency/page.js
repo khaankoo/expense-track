@@ -19,7 +19,7 @@ const Currency = () => {
                 </div>
                 <div className="flex flex-col mx-auto gap-6">
                     <div className="flex flex-col gap-3">
-                        <select className="p-3 rounded-xl border-gray-800" name="" id="">
+                        <select className="p-3 rounded-xl border-gray-300 border" name="" id="">
                             <option value="">MNT - Mongolian Tugrik</option>
                             <option value="">USD - US dollar</option>
                         </select>
