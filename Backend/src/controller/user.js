@@ -23,12 +23,12 @@ export const getOneUser = async (req, res) => {
 };
 
 export const createUser = async (req, response) => {
-  const { name, email } = req.body;
+  const { name, email, password} = req.body;
 
   try {
     const queryText =
-      "INSERT INTO users (id ,name, email) VALUES (gen_random_uuid() ,$1, $2) RETURNING *";
-    const res = await pool.query(queryText, [name, email]);
+      "INSERT INTO users (id ,name, email, password) VALUES (gen_random_uuid() ,$1, $2, $3) RETURNING *";
+    const res = await pool.query(queryText, [name, email, password]);
     response.send(res.rows[0]);
   } catch (error) {
     console.error(error);
@@ -68,7 +68,15 @@ export const login = async (req, res) => {
     const queryText = `SELECT * FROM users WHERE email='${email}' AND password='${password}'`;
     const find = await pool.query(queryText);
 
-    res.send(find.row[0].length);
+    // if (find.rows.length === 0) {
+    //   return res.send("can't found this user")
+    // }
+
+    if (find.rows[0].length !== 0) {
+      return res.send("succcccces")
+    } else {
+      res.send("failed");
+    }
   } catch (error) {
     console.error("error", error);
   }  
