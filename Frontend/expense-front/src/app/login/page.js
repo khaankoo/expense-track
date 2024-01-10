@@ -13,7 +13,7 @@ const Email = () => {
   const router = useRouter();
 
   const moveRegis = async () => {
-    router.push("/register");
+    router.push("/dashboard");
     try {
       const res = await axios.post(api, { email, password })
       console.log(res.data);

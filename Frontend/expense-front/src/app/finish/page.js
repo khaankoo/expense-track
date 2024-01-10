@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation"
 const Finish = () => {
     const router = useRouter();
     const moveHome = () => {
-        router.push("/home")
+        router.push("/dashboard")
     }
     return (
         <div className="flex flex-col mx-auto w-[400px] gap-36 h-[100vh] mt-20">
