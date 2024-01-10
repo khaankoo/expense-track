@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 const Email = () => {
   const router = useRouter();
   const moveRegis = () => {
-    router.push("/register")
+    router.push("/dashboard")
   }
   return (
     <div className="flex mx-auto justify-between w-full">
@@ -15,8 +15,8 @@ const Email = () => {
         <h1 className="text-black font-semibold">Welcome Back</h1>
         <p>Welcome back, Please enter your details</p>
         <div className="flex flex-col gap-2">
-          <input className="p-2 rounded-lg border-2 border-gray-300" type="email" id="" placeholder="Email"/>
-          <input className="p-2 rounded-lg border-2 border-gray-300" type="password" id="" placeholder="Password"/>
+          <input className="p-2 rounded-lg border-2 border-gray-300 bg-gray-100" type="email" id="" placeholder="Email"/>
+          <input className="p-2 rounded-lg border-2 border-gray-300 bg-gray-100" type="password" id="" placeholder="Password"/>
           <button className="btn bg-blue-600 text-white rounded-3xl" onClick={moveRegis}>Log in</button>
         </div>
         <div className="flex gap-2 mx-auto">

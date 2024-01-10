@@ -4,6 +4,7 @@ import Plussed from "@/images/Plussed"
 import Left from "@/images/Left"
 import DownTwo from "@/images/DownTwo"
 import Homie from "@/images/Home";
+import { Eye } from "@/images/Eye"
 
 const { default: Navbar } = require("@/components/Navbar")
 
@@ -199,6 +200,18 @@ const Record = () => {
                             <p className="text-yellow-400">-1,000$</p>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div className="flex flex-col w-[700px] h-96 bg-slate-500 gap-4 rounded-xl p-7">
+                <div className="flex justify-between">
+                    <h1>Add Record</h1>
+                    <Eye />
+                </div>
+                <div className="flex w-full">
+                    <div className="w-full h-[280px] bg-white">
+                        <button className="btn btn-primary rounded-3xl w-full">Expense Income</button>
+                    </div>
+                    <div className="w-full h-[280px] bg-slate-700"></div>
                 </div>
             </div>
         </div>
