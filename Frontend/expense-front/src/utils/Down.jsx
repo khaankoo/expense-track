@@ -45,13 +45,13 @@ const map = () => {
                 arr.map((el) => {
                     let key = uuidv4()
                     return (
-                        <div className="flex justify-between" key={key}>
+                        <button className="flex justify-between" key={key}>
                             <div className="flex gap-2">
                                 <Eye />
                                 <p>{el.title}</p>
                             </div>
                             <Nexted />
-                        </div>
+                        </button>
                     )
                 })
             }

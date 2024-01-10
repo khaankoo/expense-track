@@ -26,10 +26,10 @@ const Create = () => {
                 <h1>Create Geld account</h1>
                 <p>Sign up below to create your Wallet account</p>
                 <div className="flex flex-col gap-3">
-                    <input className="border-2 rounded-xl border-gray-300 p-2" type="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name"/>
-                    <input className="border-2 rounded-xl border-gray-300 p-2" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email"/>
-                    <input className="border-2 rounded-xl border-gray-300 p-2" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password"/>
-                    <input className="border-2 rounded-xl border-gray-300 p-2" type="password" value={rePassword} onChange={(e) => setRePassword(e.target.value)} placeholder="Re-Password"/>
+                    <input className="border-2 rounded-xl border-gray-300 p-2 bg-gray-100" type="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name"/>
+                    <input className="border-2 rounded-xl border-gray-300 p-2 bg-gray-100" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email"/>
+                    <input className="border-2 rounded-xl border-gray-300 p-2 bg-gray-100" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password"/>
+                    <input className="border-2 rounded-xl border-gray-300 p-2 bg-gray-100" type="password" value={rePassword} onChange={(e) => setRePassword(e.target.value)} placeholder="Re-Password"/>
                 </div>
                 <Link href={"/currency"}>
                     <button className="btn btn-primary bg-blue-600 rounded-3xl text-white w-full" onClick={axiosing}>Sign up</button>
