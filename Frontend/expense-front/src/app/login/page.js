@@ -35,7 +35,7 @@ const Email = () => {
         <div className="flex gap-2 mx-auto">
           <p>Don’t have account?</p>
           <Link href={"/signup"}>
-            <button className="text-blue-500">Sign up</button>
+            <button className="text-blue-500">Sign up</button>a
           </Link>
         </div>
       </div>
