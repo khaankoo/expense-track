@@ -3,6 +3,7 @@ import Link from "next/link";
 import Geld from "@/images/Geld";
 import axios from "axios";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const api = "http://localhost:8000/users"
 
@@ -11,10 +12,15 @@ const Create = () => {
     const [ email, setEmail ] = useState("");
     const [ password, setPassword ] = useState("");
     const [ rePassword, setRePassword ] = useState("")
+    const keys= { name, email, password, rePassword }
+    const router = useRouter()
     const axiosing = async () => {
       try {
         const res = await axios.post(api, {name, email, password, rePassword})
         console.log(res.data);
+        localStorage.setItem("data", JSON.stringify(keys))
+        console.log(keys);
+        router.push("/register")
       } catch (error) {
         console.error("signup error", error);
       }

@@ -13,12 +13,13 @@ const Email = () => {
   const router = useRouter();
 
   const moveRegis = async () => {
-    router.push("/dashboard");
     try {
       const res = await axios.post(api, { email, password })
+      router.push("/dashboard");
       console.log(res.data);
     } catch (error) {
       console.error("error", error);
+      alert("Password or Email not found")
     }
   }
   return (
@@ -35,7 +36,7 @@ const Email = () => {
         <div className="flex gap-2 mx-auto">
           <p>Don’t have account?</p>
           <Link href={"/signup"}>
-            <button className="text-blue-500">Sign up</button>a
+            <button className="text-blue-500">Sign up</button>
           </Link>
         </div>
       </div>

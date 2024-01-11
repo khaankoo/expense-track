@@ -5,9 +5,10 @@ import Geldii from "@/images/Geldi";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-const Navbar = () => {
+const Navbar = ({onButtonClick}) => {
     const router = useRouter();
     const [isDashboard, setIsDashboard] = useState(true)
+    // const [ modal, setModal ] = useState(false);
     const handler = (value) => setIsDashboard(value)
     const dashboard = () => {
         router.push("/dashboard");
@@ -18,7 +19,10 @@ const Navbar = () => {
         handler(false)
 
     };
-    
+    // const toggleModal = () => {
+    //     setModal(!modal)
+    //     console.log(modal);
+    // }
     return (
         <div className="w-full h-16 bg-white">
             <div className="flex max-w-screen-xl justify-between mx-auto items-center h-16">
@@ -36,7 +40,7 @@ const Navbar = () => {
                     }
                 </div>
                 <div className="flex gap-6 items-center leading-none">
-                    <button className="flex bg-blue-600 rounded-3xl text-white p-2 px-3 gap-2 items-center"><Plus /> Record</button>
+                    <button className="flex bg-blue-600 rounded-3xl text-white p-2 px-3 gap-2 items-center" onClick={onButtonClick}><Plus /> Record</button>
                     <button className="avatar online"><Profile /></button>
                 </div>
             </div>
