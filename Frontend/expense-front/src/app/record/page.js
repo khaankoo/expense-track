@@ -7,6 +7,7 @@ import DownTwo from "@/images/DownTwo"
 import Homie from "@/images/Home";
 import Close from "./../../images/X"
 import { useState } from "react"
+import Build from "./../../utils/List";
 
 const { default: Navbar } = require("@/components/Navbar")
 
@@ -18,7 +19,7 @@ const Record = () => {
         console.log(modal);
     }
     return (
-        <div className="bg-[#eff0f2] h-screen w-screen">
+        <div className="bg-[#eff0f2] h-screen">
             <Navbar />
             <div className="flex max-w-screen-xl mx-auto my-8 gap-12 relative">
                 <div className="flex flex-col w-2/6 h-[500] rounded-xl bg-white py-3 px-3 gap-3">
@@ -207,8 +208,9 @@ const Record = () => {
                 </div>
             </div>
             {modal && (
-                <div className="flex justify-center h-full w-full items-center glass absolute left-0 top-0 right-0 bottom-0" onClick={toggleModal}>
-                    <div className="flex flex-col w-[700px] h-96 bg-white gap-4 rounded-xl p-7">
+                <div className="flex flex-col h-full w-full items-center glass absolute left-0 top-0 right-0 bottom-0">
+                    <div className="w-full h-full relative" onClick={toggleModal}></div>
+                    <div className="flex flex-col mt-36 w-[700px] h-96 bg-white gap-4 rounded-xl p-7 absolute">
                         <div className="flex justify-between">
                             <h1>Add Record</h1>
                             <div onClick={toggleModal}>
