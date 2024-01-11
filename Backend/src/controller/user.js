@@ -68,11 +68,7 @@ export const login = async (req, res) => {
     const queryText = `SELECT * FROM users WHERE email='${email}' AND password='${password}'`;
     const find = await pool.query(queryText);
 
-    // if (find.rows.length === 0) {
-    //   return res.send("can't found this user")
-    // }
-
-    if (find.rows[0].length !== 0) {
+    if (find.rows.length !== 0) {
       return res.send("succcccces")
     } else {
       res.send("failed");
