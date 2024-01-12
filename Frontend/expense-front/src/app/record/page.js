@@ -20,7 +20,7 @@ const Record = () => {
     }
     return (
         <div className="bg-[#eff0f2] h-screen">
-            <Navbar />
+            <Navbar onClick={toggleModal}/>
             <div className="flex max-w-screen-xl mx-auto my-8 gap-12 relative">
                 <div className="flex flex-col w-2/6 h-[500] rounded-xl bg-white py-3 px-3 gap-3">
                     <h1 className="font-semibold mb-3 text-xl">Records</h1>

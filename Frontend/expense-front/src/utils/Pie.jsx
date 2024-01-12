@@ -11,6 +11,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import { data } from "autoprefixer";
 
 ChartJS.register(
   ArcElement,
@@ -71,10 +72,27 @@ const PieChart = () => {
     },
   });
 
+  const tableData = chartData.labels.map((label, index) => ({
+    label: label,
+    value: chartData.datasets[0].data[index],
+    color: chartData.datasets[0].backgroundColor[index],
+
+  }));
+
   return (
     <>
-      <div className="w-full relative" style={{ width: "300px", height: "270px" }}>
+      <div className="w-full relative flex" style={{ width: "300px", height: "270px" }}>
         <Pie data={chartData} options={chartOptions} />
+        {/* {tableData.map((data, index) => (
+              <tr key={index}>
+                <td className="px-3 py-2">{data.symbol}</td>
+                <td className=" px-3 py-2" style={{ color: data.color }}>
+                  {data.label}
+                </td>
+                <td className="px-3 py-2">{data.value}</td>
+                <td className="px-3 py-2">{data.percentage}%</td>
+              </tr>
+            ))} */}
       </div>
     </>
   );

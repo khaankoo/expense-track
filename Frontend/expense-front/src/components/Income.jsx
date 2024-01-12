@@ -18,22 +18,6 @@ const Expense = () => {
                 <hr />
                 <div className="flex gap-24">
                     <Pie />
-                    <div className="flex justify-between w-full tex-gray-400 items-center">
-                        <div>
-                            <p>2'000'000$</p>
-                            <p>2'000'000$</p>
-                            <p>2'000'000$</p>
-                            <p>2'000'000$</p>
-                            <p>2'000'000$</p>
-                        </div>
-                        <div>
-                            <p>15.50%</p>
-                            <p>15.50%</p>
-                            <p>15.50%</p>
-                            <p>15.50%</p>
-                            <p>15.50%</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
