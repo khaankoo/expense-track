@@ -77,3 +77,13 @@ export const login = async (req, res) => {
     console.error("error", error);
   }  
 }
+
+export const getTransaction = async (req,res) => {
+  try {
+    const queryText = `SELECT * FROM users`;
+    const response = await pool.query(queryText);
+    res.send(response.rows)
+  } catch (error) {
+    console.error("error");
+  }
+}
