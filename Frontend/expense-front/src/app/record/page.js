@@ -202,7 +202,7 @@ const Record = () => {
                                     Income
                                     </a>
                                 </div>
-                                    <input type="text"/>
+                                    <input type="text border border-gray-400 h-5" placeholder="$ 000.00"/>
                                 </div>
                             </div>
                             <div className="w-full h-[280px] bg-slate-700"></div>
