@@ -14,9 +14,13 @@ const { default: Navbar } = require("@/components/Navbar")
 
 const Record = () => {
     const [ modal, setModal ] = useState(false);
+    const [ isIncome, setIsIncome ] = useState(false)
     const toggleModal = () => {
         setModal(!modal)
         console.log(modal);
+    }
+    const income = (bool) => {
+        setIsIncome(bool)
     }
     return (
         <div className="bg-[#eff0f2] h-screen">
@@ -160,67 +164,44 @@ const Record = () => {
                             </div>
                             <p className="text-yellow-400">-1,000$</p>
                         </div>
-                        <div className="flex p-2 px-6 justify-between w-full h-14 bg-white rounded-lg border items-center">
-                            <div className="flex gap-4">
-                                <input type="checkbox"/>
-                                <Homie />
-                                <div>
-                                    <p>Lending & Renting</p>
-                                    <p className="text-gray-500 text-sm">14:00</p>
-                                </div>
-                            </div>
-                            <p className="text-yellow-400">-1,000$</p>
-                        </div>
-                        <div className="flex p-2 px-6 justify-between w-full h-14 bg-white rounded-lg border items-center">
-                            <div className="flex gap-4">
-                                <input type="checkbox"/>
-                                <Homie />
-                                <div>
-                                    <p>Lending & Renting</p>
-                                    <p className="text-gray-500 text-sm">14:00</p>
-                                </div>
-                            </div>
-                            <p className="text-yellow-400">-1,000$</p>
-                        </div>
-                        <div className="flex p-2 px-6 justify-between w-full h-14 bg-white rounded-lg border items-center">
-                            <div className="flex gap-4">
-                                <input type="checkbox"/>
-                                <Homie />
-                                <div>
-                                    <p>Lending & Renting</p>
-                                    <p className="text-gray-500 text-sm">14:00</p>
-                                </div>
-                            </div>
-                            <p className="text-yellow-400">-1,000$</p>
-                        </div>
-                        <div className="flex p-2 px-6 justify-between w-full h-14 bg-white rounded-lg border items-center">
-                            <div className="flex gap-4">
-                                <input type="checkbox"/>
-                                <Homie />
-                                <div>
-                                    <p>Lending & Renting</p>
-                                    <p className="text-gray-500 text-sm">14:00</p>
-                                </div>
-                            </div>
-                            <p className="text-yellow-400">-1,000$</p>
-                        </div>
                     </div>
                 </div>
             </div>
             {modal && (
                 <div className="flex flex-col h-full w-full items-center glass absolute left-0 top-0 right-0 bottom-0">
                     <div className="w-full h-full relative" onClick={toggleModal}></div>
-                    <div className="flex flex-col mt-36 w-[700px] h-96 bg-white gap-4 rounded-xl p-7 absolute">
+                    <div className="flex flex-col mt-36 w-[700px] h-96 bg-white gap-4 rounded-xl p-7 absolute justify-between">
                         <div className="flex justify-between">
                             <h1>Add Record</h1>
                             <div onClick={toggleModal}>
                                 <Close />
                             </div>
                         </div>
-                        <div className="flex w-full">
+                        <div className="flex w-full justify-between">
                             <div className="flex flex-col w-full h-[280px] bg-white">
                                 <div>
-                                    <button className="h-9 rounded-3xl w-full bg-slate-300">Expense Income</button>
+                                <div className="flex bg-white px-6 pt-5 w-full">
+                                    <a
+                                    className={`btn btn-sm w-[160px] h-[40px] px-[12px] rounded-[20px] text-[16px] gap-1 font-normal ${
+                                        isIncome
+                                        ? "bg-[#F3F4F6] text-black"
+                                        : "bg-[#0166FF] text-white"
+                                    }`}
+                                    onClick={() => income(false)}
+                                    >
+                                    Expense
+                                    </a>
+                                    <a
+                                    className={`btn btn-sm w-[160px] h-[40px] px-[12px] rounded-[20px] text-[16px] gap-1 font-normal ${
+                                        isIncome
+                                        ? "bg-[#16A34A] text-white"
+                                        : "bg-[#F3F4F6] text-black"
+                                    }`}
+                                    onClick={() => income(true)}
+                                    >
+                                    Income
+                                    </a>
+                                </div>
                                     <input type="text"/>
                                 </div>
                             </div>
