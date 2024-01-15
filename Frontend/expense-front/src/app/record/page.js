@@ -8,19 +8,25 @@ import Homie from "@/images/Home";
 import Close from "./../../images/X"
 import { useState } from "react"
 import Build from "./../../utils/List";
+import Category from "@/utils/AddCategory";
 
 const { default: Navbar } = require("@/components/Navbar")
 
 
 const Record = () => {
     const [ modal, setModal ] = useState(false);
+    const [ open, setOpen ] = useState(false);
     const [ isIncome, setIsIncome ] = useState(false)
     const toggleModal = () => {
         setModal(!modal)
         console.log(modal);
     }
     const income = (bool) => {
-        setIsIncome(bool)
+        setIsIncome(bool);
+    }
+    const opened = () => {
+        setOpen(!open)
+        console.log(open);
     }
     return (
         <div className="bg-[#eff0f2] h-screen">
@@ -58,7 +64,7 @@ const Record = () => {
                         </div>
                         <div className="flex flex-col gap-4 pl-4">
                             <Maped />
-                            <button className="flex items-center gap-3"><Plussed /> Add Category</button>
+                            <button className="flex items-center gap-3" onClick={opened}><Plussed /> Add Category</button>
                         </div>
                     </div>
                     <div className="flex flex-col gap-6">
@@ -170,46 +176,82 @@ const Record = () => {
             {modal && (
                 <div className="flex flex-col h-full w-full items-center glass absolute left-0 top-0 right-0 bottom-0">
                     <div className="w-full h-full relative" onClick={toggleModal}></div>
-                    <div className="flex flex-col mt-36 w-[700px] h-96 bg-white gap-4 rounded-xl p-7 absolute justify-between">
+                    <div className="flex flex-col mt-36 w-[700px] h-96 bg-white gap-2 rounded-xl p-7 absolute justify-between">
                         <div className="flex justify-between">
                             <h1>Add Record</h1>
                             <div onClick={toggleModal}>
                                 <Close />
                             </div>
                         </div>
-                        <div className="flex w-full justify-between">
-                            <div className="flex flex-col w-full h-[280px] bg-white">
-                                <div>
-                                <div className="flex bg-white px-6 pt-5 w-full">
-                                    <a
-                                    className={`btn btn-sm w-[160px] h-[40px] px-[12px] rounded-[20px] text-[16px] gap-1 font-normal ${
-                                        isIncome
-                                        ? "bg-[#F3F4F6] text-black"
-                                        : "bg-[#0166FF] text-white"
-                                    }`}
-                                    onClick={() => income(false)}
-                                    >
-                                    Expense
-                                    </a>
-                                    <a
-                                    className={`btn btn-sm w-[160px] h-[40px] px-[12px] rounded-[20px] text-[16px] gap-1 font-normal ${
-                                        isIncome
-                                        ? "bg-[#16A34A] text-white"
-                                        : "bg-[#F3F4F6] text-black"
-                                    }`}
-                                    onClick={() => income(true)}
-                                    >
-                                    Income
-                                    </a>
+                        <div className="flex justify-between gap-3">
+                            <div className="flex flex-col h-fit bg-white gap-3">
+                                <div className="flex flex-col gap-2">
+                                    <div className="flex bg-[#F3F4F6] w-full rounded-3xl">
+                                        <a
+                                        className={`w-[160px] h-[40px] text-center flex items-center justify-center rounded-[20px] text-[16px] gap-1 font-normal ${
+                                            isIncome
+                                            ? "bg-transparen text-black"
+                                            : "bg-[#0166FF] text-white"
+                                        }`}
+                                        onClick={() => income(false)}
+                                        >
+                                        Expense
+                                        </a>
+                                        <a
+                                        className={`w-[160px] h-[40px] text-center flex items-center justify-center rounded-[20px] text-[16px] gap-1 font-normal ${
+                                            isIncome
+                                            ? "bg-[#16A34A] text-white"
+                                            : "bg-transparent text-black"
+                                        }`}
+                                        onClick={() => income(true)}
+                                        >
+                                        Income
+                                        </a>
+                                    </div>
+                                    <input type="text" className="border rounded-xl p-5" placeholder="$ 000.00"/>
                                 </div>
-                                    <input type="text border border-gray-400 h-5" placeholder="$ 000.00"/>
+                                <div className="flex flex-col gap-1">
+                                    <h1>Category</h1>
+                                    <select className="w-full p-2 border rounded-md">
+                                        <option>Home</option>
+                                        <option>Food</option>
+                                        <option>Drink</option>
+                                        <option>Taxi</option>
+                                        <option>Gift</option>
+                                        <option>Shopping</option>
+                                    </select>
+                                </div>
+                                <div className="flex gap-2">
+                                    <div className="flex flex-col gap-1">
+                                        <h1>Date</h1>
+                                        <select className="w-full border p-1 rounded-md">
+                                            <option>Oct 30, 2023</option>
+                                        </select>
+                                    </div>
+                                    <div className="flex flex-col gap-1">
+                                        <h1>Date</h1>
+                                        <select className="w-full border p-1 rounded-md">
+                                            <option>4:15 PM</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button className="btn rounded-3xl bg-[#16A34A] text-white">Add Record</button>
+                            </div>
+                            <div className="w-[100%] h-[280px]">
+                                <div className="flex flex-col gap-2">
+                                    <h1>Payee</h1>
+                                    <input placeholder="Write here" className="w-full p-2 border rounded-lg"/>
+                                </div>
+                                <div className="flex flex-col gap-2">
+                                    <h1>Note</h1>
+                                    <textarea placeholder="Write here" className="w-full p-2 border rounded-lg"></textarea>
                                 </div>
                             </div>
-                            <div className="w-full h-[280px] bg-slate-700"></div>
                         </div>
                     </div>
                 </div>
             )}
+            {open && (<Category onClick={opened}/>)}
         </div>
     )
 }

@@ -5,7 +5,7 @@ import Geldii from "@/images/Geldi";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-const Navbar = ({onClick}) => {
+const Navbar = ( {onClick} ) => {
     const router = useRouter();
     const [isDashboard, setIsDashboard] = useState(true)
     const handler = (value) => setIsDashboard(value)
