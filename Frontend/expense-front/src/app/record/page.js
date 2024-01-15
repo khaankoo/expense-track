@@ -19,7 +19,6 @@ const Record = () => {
     const [ isIncome, setIsIncome ] = useState(false)
     const toggleModal = () => {
         setModal(!modal)
-        console.log(modal);
     }
     const income = (bool) => {
         setIsIncome(bool);
@@ -216,7 +215,7 @@ const Record = () => {
                     </div>
                 </div>
             )}
-            {open && (<Category />)}
+            {open && (<Category onClick={opened}/>)}
         </div>
     )
 }

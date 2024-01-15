@@ -5,7 +5,7 @@ import Geldii from "@/images/Geldi";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-const Navbar = ( {onClick} ) => {
+const Navbar = ({ onClick }) => {
     const router = useRouter();
     const [isDashboard, setIsDashboard] = useState(true)
     const handler = (value) => setIsDashboard(value)
@@ -16,7 +16,6 @@ const Navbar = ( {onClick} ) => {
     const recording = () => {
         router.push("/record");
         handler(false)
-
     };
     return (
         <div className="w-full h-16 bg-white">
@@ -30,7 +29,6 @@ const Navbar = ( {onClick} ) => {
                        <>
                         <button className="hover:font-semibold" onClick={dashboard}>Dashboard</button>
                         <button className="font-semibold" onClick={recording}>Records</button>
-
                        </>
                     }
                 </div>
