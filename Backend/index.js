@@ -84,7 +84,7 @@ app.post("/transaction", async (_, res) => {
 app.post("/dropTable", async (_, res) => {
   try {
     const tableQueryText = `
-      DROP TABLE newOne`;
+      DROP TABLE users`;
 
     await pool.query(tableQueryText);
     res.send("ok");
