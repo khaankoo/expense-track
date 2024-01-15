@@ -112,39 +112,6 @@ const Record = () => {
                             </div>
                             <p className="text-red-400">-1,000$</p>
                         </div>
-                        <div className="flex p-2 px-6 justify-between w-full h-14 bg-white rounded-lg border items-center">
-                            <div className="flex gap-4">
-                                <input type="checkbox"/>
-                                <Homie />
-                                <div>
-                                    <p>Lending & Renting</p>
-                                    <p className="text-gray-500 text-sm">14:00</p>
-                                </div>
-                            </div>
-                            <p className="text-yellow-400">-1,000$</p>
-                        </div>
-                        <div className="flex p-2 px-6 justify-between w-full h-14 bg-white rounded-lg border items-center">
-                            <div className="flex gap-4">
-                                <input type="checkbox"/>
-                                <Homie />
-                                <div>
-                                    <p>Lending & Renting</p>
-                                    <p className="text-gray-500 text-sm">14:00</p>
-                                </div>
-                            </div>
-                            <p className="text-yellow-400">-1,000$</p>
-                        </div>
-                        <div className="flex p-2 px-6 justify-between w-full h-14 bg-white rounded-lg border items-center">
-                            <div className="flex gap-4">
-                                <input type="checkbox"/>
-                                <Homie />
-                                <div>
-                                    <p>Lending & Renting</p>
-                                    <p className="text-gray-500 text-sm">14:00</p>
-                                </div>
-                            </div>
-                            <p className="text-yellow-400">-1,000$</p>
-                        </div>
                     </div>
                     <div className="flex flex-col gap-4">
                         <h1 className="font-semibold">Yesterday</h1>
@@ -224,18 +191,16 @@ const Record = () => {
                                 <div className="flex gap-2">
                                     <div className="flex flex-col gap-1">
                                         <h1>Date</h1>
-                                        <select className="w-full border p-1 rounded-md">
-                                            <option>Oct 30, 2023</option>
-                                        </select>
+                                        <input type="date" className="border rounded-md p-1"/>
                                     </div>
                                     <div className="flex flex-col gap-1">
                                         <h1>Date</h1>
-                                        <select className="w-full border p-1 rounded-md">
-                                            <option>4:15 PM</option>
-                                        </select>
+                                        <input type="time" className="border rounded-md p-1"/>
                                     </div>
                                 </div>
-                                <button className="btn rounded-3xl bg-[#16A34A] text-white">Add Record</button>
+                                <button className="btn rounded-3xl bg-[#16A34A] text-white">
+                                    Add Record { income ? "bg-[#0166FF] text-white" : "bg-[#16A34A] text-white" }
+                                </button>
                             </div>
                             <div className="w-[100%] h-[280px]">
                                 <div className="flex flex-col gap-2">
@@ -251,7 +216,7 @@ const Record = () => {
                     </div>
                 </div>
             )}
-            {open && (<Category onClick={opened}/>)}
+            {open && (<Category />)}
         </div>
     )
 }
