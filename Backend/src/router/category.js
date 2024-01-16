@@ -1,9 +1,8 @@
-import { createCategory, getAllCategory } from "../controller/category";
-import { express } from "express";
+import { createCategory, getAllCategory } from "../controller/category.js";
+import express from "express";
 
-const category = express.Router()
+const category = express.Router();
 
 
-
-category.router("/").post(createCategory).get(getAllCategory);
+category.route("/").post(createCategory).get(getAllCategory);
 export {category}
