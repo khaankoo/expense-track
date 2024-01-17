@@ -1,62 +1,29 @@
+import { useEffect, useState } from "react"
 import { Eye } from "../images/Eye"
 import { Nexted } from "../images/next"
-import { v4 as uuidv4 } from "uuid"
-const arr = [
-    {
-        title: "Food & Drinks"
-    },
-    {
-        title: "Shopping"
-    },
-    {
-        title: "Housing"
-    },
-    {
-        title: "Transportation"
-    },
-    {
-        title: "Vehicle"
-    },
-    {
-        title: "Life & Entertainment"
-    },
-    {
-        title: "Communication, PC"
-    },
-    {
-        title: "Financial expenses"
-    },
-    {
-        title: "Investments"
-    },
-    {
-        title: "Income"
-    },
-    {
-        title: "Others"
-    },
-]
-
+import axios from "axios"
 
 const map = () => {
+    const [ categories, setCategories ] = useState()
+    const category = async () => {
+        try {
+            const res = await axios.post("http://localhost:8000/category")
+            setCategories(res.data)
+        } catch (error) {
+            console.error(error);
+        }
+    }
+    useEffect(() => {
+        category()
+    }, [])
     return (
-        <>
-            {
-                arr.map((el) => {
-                    let key = uuidv4()
-                    return (
-                        <button className="flex justify-between" key={key}>
-                            <div className="flex gap-2">
-                                <Eye />
-                                <p>{el.title}</p>
-                            </div>
-                            <Nexted />
-                        </button>
-                    )
-                })
-            }
-        </>
+        <button className="flex justify-between">
+            <div className="flex gap-2">
+                <Eye />
+                {categories && Array.isArray(categories) && categories.map((e) => <p key={e.name}>{e.name}</p>)}
+            </div>
+            <Nexted />
+        </button>
     )
 }
-
 export default map

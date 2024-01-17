@@ -7,7 +7,6 @@ import DownTwo from "@/images/DownTwo"
 import Homie from "@/images/Home";
 import Close from "./../../images/X"
 import { useState } from "react"
-import Build from "./../../utils/List";
 import Category from "@/utils/AddCategory";
 
 const { default: Navbar } = require("@/components/Navbar")
@@ -43,15 +42,15 @@ const Record = () => {
                         <h1 className="font-semibold text-lg">Types</h1>
                         <div className="flex flex-col gap-3 pl-4">
                             <div className="flex gap-3">
-                                <input type="checkbox" className="rounded-3xl border"/>
+                                <input type="checkbox"/>
                                 <p>All</p>
                             </div>
                             <div className="flex gap-3">
-                                <input type="checkbox" className="rounded-3xl"/>
+                                <input type="checkbox"/>
                                 <p>Income</p>
                             </div>
                             <div className="flex gap-3">
-                                <input type="checkbox" className="rounded-3xl"/>
+                                <input type="checkbox"/>
                                 <p>Expense</p>
                             </div>
                         </div>

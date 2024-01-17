@@ -18,12 +18,12 @@ const Category = ({ onClick }) => {
         }
     };
     return (
-        <div className="w-full h-full glass relative">
-            <div className="flex flex-col p-5 w-96 gap-4 h-fit bg-white rounded-xl absolute left-0 top-0 right-0 bottom-0 mx-auto">
+        <div className="w-full h-full glass relative left-0 top-0 right-0 bottom-0 mx-auto">
+            <div className="flex flex-col p-5 w-96 gap-4 h-fit bg-white rounded-xl">
                 <div className="flex flex-col gap-2">
                     <div className="flex justify-between">
                         <h1>Add Category</h1>
-                        <Close onClick={onClick}/>
+                        <div onClick={onClick}><Close /></div>
                     </div>
                     <hr />
                     <div className="flex gap-2 justify-between">
