@@ -5,6 +5,7 @@ import { pool } from "./src/utils/db.js";
 import { user } from "./src/router/user.js";
 import cors from "cors";
 import { category } from "./src/router/category.js";
+import { transaction } from "./src/router/transaction.js";
 
 dotenv.config();
 
@@ -15,12 +16,13 @@ app.use(bp.json());
 
 app.use("/users", user);
 app.use("/category", category);
+app.use("/transaction", transaction)
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}`);
 });
 
-app.post("/createTable", async (_, res) => {
+app.post("/createUsersTable", async (_, res) => {
   try {
     const tableQueryText = `
     CREATE TABLE IF NOT EXISTS users (
@@ -63,17 +65,18 @@ app.post("/createCategoryTable", async (_, res) => {
 app.post("/createTransactionTable", async (_, res) => {
   try {
     const tableQueryText = `
-    CREATE TABLE IF NOT EXISTS transaction (
+    CREATE TABLE IF NOT EXISTS transactions (
       id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-      user_id uuid REFERENCES users(id),
-      name VARCHAR (255) NOT NULL,
-      amount VARCHAR (255) NOT NULL,
+      user_id TEXT,
+      name TEXT,
+      amount REAL NOT NULL,
       transaction_type VARCHAR (3) CHECK (transaction_type IN ('INC', 'EXP')),
-      description VARCHAR (255) NOT NULL, 
-      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-      updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-      category_id uuid REFERENCES category(id)
+      description TEXT, 
+      createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      category_id TEXT
       )`;
+
     await pool.query(tableQueryText);
     res.send("ok");
   } catch (error) {
@@ -84,7 +87,7 @@ app.post("/createTransactionTable", async (_, res) => {
 app.post("/dropTable", async (_, res) => {
   try {
     const tableQueryText = `
-      DROP TABLE category`;
+      DROP TABLE `;
 
     await pool.query(tableQueryText);
     res.send("ok");

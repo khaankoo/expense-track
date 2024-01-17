@@ -1,6 +1,6 @@
 import { pool } from "../utils/db.js";
 
-export const createCategory = async ( req, res) => {
+export const createCategory = async (req, res) => {
     console.log(req.body);
     const { name, description } = req.body;
     console.log( name, description );
