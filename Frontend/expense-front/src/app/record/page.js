@@ -13,9 +13,9 @@ const { default: Navbar } = require("@/components/Navbar")
 
 
 const Record = () => {
-    const [ modal, setModal ] = useState(false);
     const [ open, setOpen ] = useState(false);
     const [ isIncome, setIsIncome ] = useState(false)
+    const [ modal, setModal ] = useState(false);
     const toggleModal = () => {
         setModal(!modal)
     }

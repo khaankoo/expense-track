@@ -12,15 +12,19 @@ const Create = () => {
     const [ email, setEmail ] = useState("");
     const [ password, setPassword ] = useState("");
     const [ rePassword, setRePassword ] = useState("")
-    const keys= { name, email, password, rePassword }
+    const keys = { name, email, password, rePassword }
     const router = useRouter()
     const axiosing = async () => {
       try {
+        if ( password !== rePassword ) {
+            alert("Password not match")
+            return
+        }
         const res = await axios.post(api, {name, email, password, rePassword})
         console.log(res.data);
         localStorage.setItem("data", JSON.stringify(keys))
         console.log(keys);
-        router.push("/register")
+        router.push("/loading")
       } catch (error) {
         console.error("signup error", error);
       }
@@ -37,9 +41,7 @@ const Create = () => {
                     <input className="border-2 rounded-xl border-gray-300 p-2 bg-gray-100" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password"/>
                     <input className="border-2 rounded-xl border-gray-300 p-2 bg-gray-100" type="password" value={rePassword} onChange={(e) => setRePassword(e.target.value)} placeholder="Re-Password"/>
                 </div>
-                <Link href={"/currency"}>
-                    <button className="btn btn-primary bg-blue-600 rounded-3xl text-white w-full" onClick={axiosing}>Sign up</button>
-                </Link>
+                <button className="btn btn-primary bg-blue-600 rounded-3xl text-white w-full" onClick={axiosing}>Sign up</button>
                 <div className="flex justify-center gap-3">
                     <p>Already have account?</p>
                     <Link href={"/login"}>

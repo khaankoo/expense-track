@@ -3,7 +3,7 @@ import Profile from "@/images/Profile";
 import Plus from "@/images/Plus";
 import Geldii from "@/images/Geldi";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Navbar = ({ onClick }) => {
     const router = useRouter();
@@ -17,6 +17,10 @@ const Navbar = ({ onClick }) => {
         router.push("/record");
         handler(false)
     };
+    useEffect(() => {
+        handler(),
+        setIsDashboard()
+    }, [])
     return (
         <div className="w-full h-16 bg-white">
             <div className="flex max-w-screen-xl justify-between mx-auto items-center h-16">
