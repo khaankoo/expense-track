@@ -6,6 +6,7 @@ import { user } from "./src/router/user.js";
 import cors from "cors";
 import { category } from "./src/router/category.js";
 import { transaction } from "./src/router/transaction.js";
+import e from "express";
 
 dotenv.config();
 
@@ -84,10 +85,9 @@ app.post("/createTransactionTable", async (_, res) => {
   }
 });
 
-app.post("/dropTable", async (_, res) => {
+app.post("/dropUsersTable", async (_, res) => {
   try {
-    const tableQueryText = `
-      DROP TABLE `;
+    const tableQueryText = `DROP TABLE users`;
 
     await pool.query(tableQueryText);
     res.send("ok");
@@ -95,3 +95,25 @@ app.post("/dropTable", async (_, res) => {
     console.error(error);
   }
 });
+
+app.post("/dropCategoryTable", async (_, res) => {
+  try {
+    const tableQueryText = `DROP TABLE category`;
+
+    await pool.query(tableQueryText);
+    res.send("OK")
+  } catch (error) {
+    console.error(error);
+  }
+})
+
+app.post("/dropTransactionTable", async (req,res) => {
+  try {
+    const tableQueryText = `DROP TABLE transactions`;
+
+    await pool.query(tableQueryText);
+    res.send("OK")
+  } catch (error) {
+    console.error(error);
+  }
+})

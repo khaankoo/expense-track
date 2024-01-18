@@ -14,7 +14,7 @@ export const createCategory = async (req, res) => {
     }
 }
 
-export const getAllCategory = async () => {
+export const getAllCategory = async (req, res) => {
     try {
         const queryText = `SELECT * FROM category`;
         const response = await pool.query(queryText)
