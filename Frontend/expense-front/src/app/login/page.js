@@ -28,24 +28,21 @@ const Email = () => {
         <h1 className="text-black font-semibold">Welcome Back</h1>
         <p>Welcome back, Please enter your details</p>
         <div className="flex flex-col gap-2">
-          <input
-            className="p-2 rounded-lg border-2 border-gray-300"
+          <input className="p-2 rounded-lg border-2 border-gray-300"
             type="email"
             id=""
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <input
-            className="p-2 rounded-lg border-2 border-gray-300"
+          <input className="p-2 rounded-lg border-2 border-gray-300"
             type="password"
             id=""
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button
-            className="btn bg-blue-600 text-white rounded-3xl btn-primary"
+          <button className="btn bg-blue-600 text-white rounded-3xl btn-primary"
             onClick={moveRegis}
           >
             Log in

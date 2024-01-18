@@ -1,55 +1,42 @@
 import Homie from "@/images/Home";
-
-const eeer = [
-    {
-        say: "Lending & Renting",
-        mungu: "-1,000$"
-    },
-    {
-        say: "Lending & Renting",
-        mungu: "-1,000$"
-    },
-    {
-        say: "Lending & Renting",
-        mungu: "-1,000$"
-    },
-    {
-        say: "Lending & Renting",
-        mungu: "-1,000$"
-    },
-    {
-        say: "Lending & Renting",
-        mungu: "-1,000$"
-    },
-    {
-        say: "Lending & Renting",
-        mungu: "-1,000$"
-    }
-]
+import { useEffect, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+import axios from "axios";
 
 
 const build = () => {
-  return (
-    <div>
-        {
-            eeer.map((e) => {
-                return (
-                <div className="flex p-2 px-6 justify-between h-14 bg-white rounded-lg border items-center w-[910px]">
-                    <div className="flex gap-4">
-                      <input type="checkbox" />
-                      <Homie />
-                      <div>
-                        <p>{e.say}</p>
-                        <p className="text-gray-500 text-sm">14:00</p>
-                      </div>
-                    </div>
-                    <p className="text-yellow-400">{e.mungu}</p>
-                </div>
-                )
-            })
+    const [ transaction, setTransaction ] = useState();
+    const getting = async () => {
+        try {
+            const res = await axios.get("http://localhost:8000/transaction");
+            setTransaction(res.data);
+        } catch (error) {
+            console.error(error);
         }
-    </div>
-  );
+    }
+    useEffect(() => {
+        getting()
+    }, [])
+    return (
+        <div className="flex flex-col gap-3">
+        {transaction && transaction.map((e) => {
+            let key = uuidv4();
+            return (
+            <div className="flex p-2 px-6 justify-between h-14 bg-white rounded-lg border items-center w-[910px]" key={key}>
+                <div className="flex gap-4">
+                <input type="checkbox" />
+                <Homie />
+                <div>
+                    <p>{e.name}</p>
+                    <p className="text-gray-500 text-sm">{e.createdat}</p>
+                </div>
+                </div>
+                <p className="text-yellow-400">{e.amount}$</p>
+            </div>
+            );
+        })}
+        </div>
+    );
 };
 
 export default build;

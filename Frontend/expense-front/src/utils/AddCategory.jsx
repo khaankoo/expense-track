@@ -5,8 +5,8 @@ import Homie from "@/images/Home";
 import axios from "axios";
 
 const Category = ({ onClick }) => {
-    const [ name, setName ] = useState("");
-    const [ description, setDesc ] = useState("");
+    const [ name, setName ] = useState();
+    const [ description, setDesc ] = useState();
     const [ data, setData ] = useState();
     const adding = async () => {
         try {
