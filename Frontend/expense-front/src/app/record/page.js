@@ -4,7 +4,6 @@ import Maped from "@/utils/Down"
 import Plussed from "@/images/Plussed"
 import Left from "@/images/Left"
 import DownTwo from "@/images/DownTwo"
-import Homie from "@/images/Home";
 import Close from "./../../images/X"
 import { useState } from "react"
 import axios from "axios";
@@ -13,11 +12,11 @@ import Build from "@/utils/List";
 import Navbar from "@/components/Navbar";
 
 const Record = () => {
-    const [ name, setName ] = useState();
-    const [ amount, setAmount ] = useState();
-    const [ created, setCreated ] = useState();
-    const [ tranType, setTranType ] = useState() 
-    const [ data, setData ] = useState();
+    const [ name, setName ] = useState('');
+    const [ amount, setAmount ] = useState(0);
+    const [ created, setCreated ] = useState('');
+    const [ tranType, setTranType ] = useState('') 
+    const [ data, setData ] = useState([]);
     const [ open, setOpen ] = useState(false);
     const [ isIncome, setIsIncome ] = useState(false)
     const [ modal, setModal ] = useState(false);
@@ -29,7 +28,6 @@ const Record = () => {
     }
     const opened = () => {
         setOpen(!open)
-        console.log(open);
     }
     const recording = async () => {
         try {
@@ -106,28 +104,6 @@ const Record = () => {
                     </div>
                     <div className="flex flex-col gap-4">
                         <h1 className="font-semibold">Yesterday</h1>
-                        <div className="flex p-2 px-6 justify-between w-full h-14 bg-white rounded-lg border items-center">
-                            <div className="flex gap-4">
-                                <input type="checkbox"/>
-                                <Homie />
-                                <div>
-                                    <p>Lending & Renting</p>
-                                    <p className="text-gray-500 text-sm">14:00</p>
-                                </div>
-                            </div>
-                            <p className="text-green-400">-1,000$</p>
-                        </div>
-                        <div className="flex p-2 px-6 justify-between w-full h-14 bg-white rounded-lg border items-center">
-                            <div className="flex gap-4">
-                                <input type="checkbox"/>
-                                <Homie />
-                                <div>
-                                    <p>Lending & Renting</p>
-                                    <p className="text-gray-500 text-sm">14:00</p>
-                                </div>
-                            </div>
-                            <p className="text-red-400">-1,000$</p>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -189,8 +165,8 @@ const Record = () => {
                                         <input type="time" className="border rounded-md p-1" onChange={(e) => setCreated(e.target.value)}/>
                                     </div>
                                 </div>
-                                <button className="btn rounded-3xl bg-[#16A34A] text-white" onClick={recording}>
-                                    Add Record { income ? "bg-[#0166FF] text-white" : "bg-[#16A34A] text-white" }
+                                <button className={`btn rounded-3xl bg-[#16A34A] text-white ${ income ? "bg-[#0166FF] text-white" : "bg-[#16A34A] text-white" }`} onClick={recording}>
+                                    Add Record
                                 </button>
                             </div>
                             <div className="w-[100%] h-[280px]">

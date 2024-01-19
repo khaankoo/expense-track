@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 
 
-const build = () => {
+const Build = () => {
     const [ transaction, setTransaction ] = useState();
     const getting = async () => {
         try {
@@ -31,7 +31,7 @@ const build = () => {
                     <p className="text-gray-500 text-sm">{e.createdat}</p>
                 </div>
                 </div>
-                <p className="text-yellow-400">{e.amount}$</p>
+                <p className="text-red-400">{e.amount}$</p>
             </div>
             );
         })}
@@ -39,4 +39,4 @@ const build = () => {
     );
 };
 
-export default build;
+export default Build;

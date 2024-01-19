@@ -4,7 +4,7 @@ import { Nexted } from "../images/next"
 import axios from "axios"
 import { v4 as uuidv4 } from "uuid"
 
-const map = () => {
+const Map = () => {
     const [ categories, setCategories ] = useState()
     const category = async () => {
         try {
@@ -34,4 +34,4 @@ const map = () => {
         </div>
     )
 }
-export default map
+export default Map
