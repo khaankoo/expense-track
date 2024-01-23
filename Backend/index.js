@@ -6,7 +6,6 @@ import { user } from "./src/router/user.js";
 import cors from "cors";
 import { category } from "./src/router/category.js";
 import { transaction } from "./src/router/transaction.js";
-import e from "express";
 
 dotenv.config();
 

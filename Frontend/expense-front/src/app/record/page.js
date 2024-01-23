@@ -31,7 +31,7 @@ const Record = () => {
     }
     const recording = async () => {
         try {
-            const res = await axios.post("http://localhost:8000/transaction", { name, amount, created, tranType });
+            const res = await axios.post("http://localhost:8000/transaction/post", { name, amount, created, tranType });
             console.log(res.data);
             setData(res.data)
         } catch (error) {
@@ -165,7 +165,7 @@ const Record = () => {
                                         <input type="time" className="border rounded-md p-1" onChange={(e) => setCreated(e.target.value)}/>
                                     </div>
                                 </div>
-                                <button className={`btn rounded-3xl bg-[#16A34A] text-white ${ income ? "bg-[#0166FF] text-white" : "bg-[#16A34A] text-white" }`} onClick={recording}>
+                                <button className={`btn rounded-3xl ${ income ? 'bg-[#0166FF] text-white' : 'bg-[#16A34A] text-white' }`} onClick={recording}>
                                     Add Record
                                 </button>
                             </div>
