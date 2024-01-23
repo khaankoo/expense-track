@@ -31,7 +31,7 @@ const Card = () => {
                 <div className="flex flex-col gap-3">
                     <div className="flex gap-3">
                         <Bluen />
-                        <h1>Your Income</h1>
+                        <h1>Total Expenses</h1>
                     </div>
                     <hr />
                 </div>
